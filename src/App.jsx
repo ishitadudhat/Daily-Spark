@@ -27,19 +27,18 @@ export class App extends Component {
     super(props);
     this.state = {
       isDarkMode: false,
+      apiKey : process.env.REACT_APP_API_KEY,
+      progress: 0
     }
   }
 
   toggleDarkMode = () => {
     this.setState(prevState => ({
-      isDarkMode: !prevState.isDarkMode
+      isDarkMode: !prevState.isDarkMode,
     }))
   }
 
-  state = {
-    progress: 0
-  }
-
+  
   setProgress = (progress) => {
     this.setState({ progress: progress })
   }
@@ -62,13 +61,13 @@ export class App extends Component {
             />
 
             <Routes>
-              <Route path='/' element={<News setProgress={this.setProgress} key="general" pageSize={6} country={"in"} category={"general"} />} />
-              <Route path='/business' element={<News setProgress={this.setProgress} key="business" pageSize={6} country={"in"} category={"business"} />} />
-              <Route path='/entertainment' element={<News setProgress={this.setProgress} key="entertainment" pageSize={6} country={"in"} category={"entertainment"} />} />
-              <Route path='/health' element={<News setProgress={this.setProgress} key="health" pageSize={6} country={"in"} category={"health"} />} />
-              <Route path='/science' element={<News setProgress={this.setProgress} key="science" pageSize={6} country={"in"} category={"science"} />} />
-              <Route path='/sports' element={<News setProgress={this.setProgress} key="sports" pageSize={6} country={"in"} category={"sports"} />} />
-              <Route path='/technology' element={<News setProgress={this.setProgress} key="technology" pageSize={6} country={"in"} category={"technology"} />} />
+              <Route path='/' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="general" pageSize={6} country={"in"} category={"general"} />} />
+              <Route path='/business' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="business" pageSize={6} country={"in"} category={"business"} />} />
+              <Route path='/entertainment' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="entertainment" pageSize={6} country={"in"} category={"entertainment"} />} />
+              <Route path='/health' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="health" pageSize={6} country={"in"} category={"health"} />} />
+              <Route path='/science' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="science" pageSize={6} country={"in"} category={"science"} />} />
+              <Route path='/sports' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="sports" pageSize={6} country={"in"} category={"sports"} />} />
+              <Route path='/technology' element={<News setProgress= {this.setProgress} apiKey={this.state.apiKey} key="technology" pageSize={6} country={"in"} category={"technology"} />} />
               <Route path='/AboutUs' element={<AboutUs />} />
             </Routes>
           </div>
